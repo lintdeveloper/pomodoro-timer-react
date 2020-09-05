@@ -1,13 +1,22 @@
 import React from 'react';
 import Timer from './Timer';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+
 
 
 describe('Timer ', () => {
+  let container;
+
+  beforeEach(() => (container = shallow(<Timer />)));
+
   it('should render <div />', () => {
-    const container = shallow(<Timer />);
-    expect(container.find("div").length).toEqual(3);
+    expect(container.find('div').length).toEqual(3);
+  });
+
+  it('should render the instance of the TimerButton component', () => {
+    expect(container.find('TimerButton').length).toBeGreaterThanOrEqual(1);
   });
 
   
+
 })

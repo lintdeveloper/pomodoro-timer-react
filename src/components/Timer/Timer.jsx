@@ -10,6 +10,8 @@ class Timer extends Component {
         <div className="time-display"></div>
         <div className="timer-button-container">
           <TimerButton/>
+          <TimerButton/>
+          <TimerButton/>
         </div>
       </div>
     );

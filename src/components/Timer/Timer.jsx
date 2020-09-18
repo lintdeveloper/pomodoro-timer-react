@@ -10,6 +10,10 @@ class Timer extends Component {
       seconds: 0,
       isOn: false
     }
+
+    this.startTimer = this.startTimer.bind(this);
+    this.stopTimer = this.stopTimer.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
   }
 
   startTimer() {
@@ -37,20 +41,22 @@ class Timer extends Component {
     this.setState({ isOn: true})
   }
 
-  render() {
-    const { minutes, seconds } = this.state;
+  stopTimer() {
+
+  }
+
+  resetTimer() {
     
+  }
+
+  render() {
     return (
       <div className="timer-container">
         <div className="time-display"></div>
         <div className="timer-button-container">
-          <TimerButton
-            className="start-timer"
-            buttonAction={this.startTimer}
-            buttonValue={'Start'}
-          />
-          <TimerButton/>
-          <TimerButton/>
+          <TimerButton className="start-timer" buttonAction={this.startTimer} buttonValue={'Start'} />
+          <TimerButton className="stop-timer" buttonAction={this.stopTimer} buttonValue={'Stop'} />
+          <TimerButton className="reset-timer" buttonAction={this.resetTimer} buttonValue={'Reset'} />
         </div>
       </div>
     );

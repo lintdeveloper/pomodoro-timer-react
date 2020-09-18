@@ -21,7 +21,9 @@ code {
   --button-text-size: 3em;
 }
 
-body, div, p {
+body,
+div,
+p {
   margin: 0;
   padding: 0;
 }

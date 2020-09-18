@@ -42,17 +42,25 @@ class Timer extends Component {
   }
 
   stopTimer() {
-
+    clearInterval(this.myInterval);
+    this.setState({ isOn: false})
   }
 
   resetTimer() {
-    
+    this.stopTimer({
+      minutes: 25,
+      seconds: 0
+    })
   }
 
   render() {
+    const { minutes, seconds } = this.state;
+
     return (
       <div className="timer-container">
-        <div className="time-display"></div>
+        <div className="time-display">
+          {minutes}:{seconds < 10 ? `0${seconds}` : seconds}
+        </div>
         <div className="timer-button-container">
           <TimerButton className="start-timer" buttonAction={this.startTimer} buttonValue={'Start'} />
           <TimerButton className="stop-timer" buttonAction={this.stopTimer} buttonValue={'Stop'} />
